@@ -116,7 +116,7 @@ const data = [
 function createArticle(data) {
   
   // Elements
-  const articleShell = document.createElement('div');
+  const articleDiv = document.createElement('div');
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
   const paragraphOne = document.createElement('p');
@@ -124,31 +124,35 @@ function createArticle(data) {
   const paragraphThree = document.createElement('p');
   const expandButton = document.createElement('span');
   // Classes
-  articleShell.classList.add('article');
+  articleDiv.classList.add('article');
   articleDate.classList.add('date');
   paragraphOne.classList.add('firstParagraph');
   paragraphTwo.classList.add('secondParagraph');
   paragraphThree.classList.add('thirdParagraph');
   expandButton.classList.add('expandButton')
   // Structure
-  articleShell.appendChild(articleTitle);
-  articleShell.appendChild(articleDate);
-  articleShell.appendChild(paragraphOne);
-  articleShell.appendChild(paragraphTwo);
-  articleShell.appendChild(paragraphThree);
+  articleDiv.appendChild(articleTitle);
+  articleDiv.appendChild(articleDate);
+  articleDiv.appendChild(paragraphOne);
+  articleDiv.appendChild(paragraphTwo);
+  articleDiv.appendChild(paragraphThree);
+  articleDiv.appendChild(expandButton);
   // Text
   articleTitle.textContent = data.title;
   articleDate.textContent = data.date;
   paragraphOne.textContent = data.firstParagraph;
   paragraphTwo.textContent = data.secondParagraph;
   paragraphThree.textContent = data.thirdParagraph;
+  expandButton.textContent = '↕';
+  
   // Event Listeners
-  expandButton.addEventListener('click', event => {
-    articleShell.classList.toggle('article-open');
+  expandButton.addEventListener('click', (event) => {
+    articleDiv.classList.toggle('article-open');
   })
     
-  return articleShell;
+  return articleDiv;
 }
+
 const articles = document.querySelector('.articles');
 data.forEach(data => {
   articles.appendChild(createArticle(data))
