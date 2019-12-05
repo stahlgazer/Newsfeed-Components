@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'My New Sweet Article',
+    date: 'Dec 4th, 2019',
+    firstParagraph: 'Today was interesting, definitely figured out some new useful things!',
+    secondParagraph: "Not without struggles ofcourse. I wasn't feeling well so I had to lie down for a while which made my project be late and not ready by 4 o'clock pst.",
+    thirdParagraph: "Hopefully you enjoy my articles I've created!",
   }
 ];
 
@@ -145,7 +152,7 @@ function createArticle(data) {
   paragraphThree.textContent = data.thirdParagraph;
   expandButton.textContent = '↕';
   
-  // Event Listeners
+  // Event Listener
   expandButton.addEventListener('click', (event) => {
     articleDiv.classList.toggle('article-open');
   })
