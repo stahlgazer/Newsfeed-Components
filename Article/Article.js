@@ -88,8 +88,8 @@ const data = [
   }
 ];
 
-/* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
+/* Step 1: Create a function that creates a component. You will want your component to look like the template below:
+
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -112,3 +112,44 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function createArticle(data) {
+  
+  // Elements
+  const articleShell = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const paragraphOne = document.createElement('p');
+  const paragraphTwo = document.createElement('p');
+  const paragraphThree = document.createElement('p');
+  const expandButton = document.createElement('span');
+  // Classes
+  articleShell.classList.add('article');
+  articleDate.classList.add('date');
+  paragraphOne.classList.add('firstParagraph');
+  paragraphTwo.classList.add('secondParagraph');
+  paragraphThree.classList.add('thirdParagraph');
+  expandButton.classList.add('expandButton')
+  // Structure
+  articleShell.appendChild(articleTitle);
+  articleShell.appendChild(articleDate);
+  articleShell.appendChild(paragraphOne);
+  articleShell.appendChild(paragraphTwo);
+  articleShell.appendChild(paragraphThree);
+  // Text
+  articleTitle.textContent = data.title;
+  articleDate.textContent = data.date;
+  paragraphOne.textContent = data.firstParagraph;
+  paragraphTwo.textContent = data.secondParagraph;
+  paragraphThree.textContent = data.thirdParagraph;
+  // Event Listeners
+  expandButton.addEventListener('click', event => {
+    articleShell.classList.toggle('article-open');
+  })
+    
+  return articleShell;
+}
+const articles = document.querySelector('.articles');
+data.forEach(data => {
+  articles.appendChild(createArticle(data))
+})
